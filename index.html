@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search bar</title>
+    <style>
+        #table{
+            margin: 6px;
+            width: 99%;
+            text-align: left;
+            border: 1;
+        }
+        #Input
+        {
+            width: 98%;
+            padding: 8px;
+        }
+        #table .tr
+        {
+            border-bottom: 1px solid #f1f1f1;
+        }
+        td{
+            padding: 8px;
+        }
+        #table .header, #table .tr:hover{
+            background: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="heading" style="text-align:center; text-transform:uppercase; color:green; ">My Friends </h1>
+    <input type="text" name="" id="Input" onkeyup="search()" placeholder="Names">
+    <table id="table">
+        <tr class="header">
+            <th style = "width: 40%">Name</th>
+            <th style = "width: 30%">Degree</th>
+            <th style = "width: 30%">profession</th>
+        </tr>
+        <tr class="tr">
+            <td>Vinod</td>
+            <td>MCS</td>
+            <td>full stack developer</td>
+        </tr>
+        <tr class="tr">
+            <td>Bahadur</td>
+            <td>BBA</td>
+            <td>HR manager</td>
+        </tr>
+        <tr class="tr">
+            <td>Thapa</td>
+            <td>BCS</td>
+            <td>front end developer</td>
+        </tr>
+        <tr class="tr">
+            <td>Arjun</td>
+            <td>MCS</td>
+            <td>full stack developer</td>
+        </tr>
+        <tr class="tr">
+            <td>Ramesh</td>
+            <td>MCS</td>
+            <td>full stack developer</td>
+        </tr>
+        <tr class="tr">
+            <td>Ram</td>
+            <td>M Tech.</td>
+            <td>full stack developer</td>
+        </tr>
+        <tr class="tr">
+            <td>Arpit</td>
+            <td>MCS</td>
+            <td>full stack developer</td>
+        </tr>
+        <tr class="tr">
+            <td>naman</td>
+            <td>MCS</td>
+            <td>full stack developer</td>
+        </tr>
+    </table>
+
+    <script>
+        const search = () =>{
+            let filter = document.getElementById('Input').value.toUpperCase();
+
+            let table = document.getElementById('table');
+
+            let tr  = table.getElementsByTagName('tr');
+
+            for (var i=0; i<tr.length; i++){
+                let td  = tr[i].getElementsByTagName('td')[0];
+
+                if(td){
+                    let textvalue = td.textContent || td.innerHTML;
+                    if(textvalue.toUpperCase().indexOf(filter) > -1){
+                        tr[i].style.display = "";
+
+                    }else{
+                        tr[i].style.display = 'none';
+                    }
+                }
+
+             }
+
+            
+        }
+
+
+    </script>
+</body>
+</html>
